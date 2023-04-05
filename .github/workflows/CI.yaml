@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  notice:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - uses: pnpm/action-setup@v2.2.4
+        with: 
+          version: 8.1.1
+      - name: Configure GitHub Packages registry
+        run: |
+          echo "@jsuhub:registry=https://npm.pkg.github.com/" >> .npmrc
+          echo '//npm.pkg.github.com/:_authToken=${{ secrets.NPM_GITHUB_PACKAGES_TOKEN }}' >> ~/.npmrc
+
+      - run: pnpm install --no-frozen-lockfile
+      - run: pnpm jf
