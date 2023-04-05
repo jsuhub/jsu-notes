@@ -11,10 +11,11 @@
   "license": "ISC",
   "devDependencies": {
     "@commitlint/config-conventional": "^17.4.4",
+    "@jsuhub/jsu-feishu": "^1.0.1",
     "commitizen": "^4.3.0",
     "commitlint": "^17.5.1",
-    "husky": "^8.0.3",
-    "cz-conventional-changelog": "^3.3.0"
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.3"
   },
   "config": {
     "commitizen": {
